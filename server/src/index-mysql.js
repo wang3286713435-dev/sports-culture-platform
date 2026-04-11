@@ -49,18 +49,18 @@ async function initDatabase() {
 }
 
 // 简化 SQL 执行
-async function sql(sql, params = []) {
+async function sqlQuery(sqlStr, params = []) {
   try {
-    const [rows] = await pool.query(sql, params);
+    const [rows] = await pool.query(sqlStr, params);
     return rows;
   } catch (err) {
-    console.error('❌ SQL Error:', err.message, '\nSQL:', sql);
+    console.error('❌ SQL Error:', err.message, '\nSQL:', sqlStr);
     return [];
   }
 }
 
-async function sqlOne(sql, params = []) {
-  const rows = await sql(sql, params);
+async function sqlOne(sqlStr, params = []) {
+  const rows = await sqlQuery(sqlStr, params);
   return Array.isArray(rows) ? rows[0] || null : null;
 }
 
@@ -98,7 +98,7 @@ app.get('/api/sports', (req, res) => {
 
 // 热门教练
 app.get('/api/coaches/popular', async (req, res) => {
-  const coaches = await sql(`
+  const coaches = await sqlQuery(`
     SELECT c.*, u.nickname, u.avatar as avatar_url
     FROM coaches c
     JOIN users u ON c.user_id = u.id
@@ -126,7 +126,7 @@ app.get('/api/coaches', async (req, res) => {
   if (keyword) { s += ' AND u.nickname LIKE ?'; params.push(`%${keyword}%`); }
   s += ' ORDER BY c.rating DESC, c.total_lessons DESC';
 
-  const coaches = await sql(s, params);
+  const coaches = await sqlQuery(s, params);
   res.json({ code: 200, data: coaches });
 });
 
@@ -159,7 +159,7 @@ app.get('/api/courses', async (req, res) => {
   if (level) { s += ' AND level = ?'; params.push(level); }
   s += ' ORDER BY created_at DESC';
 
-  const courses = await sql(s, params);
+  const courses = await sqlQuery(s, params);
   res.json({ code: 200, data: courses });
 });
 
@@ -177,7 +177,7 @@ app.post('/api/courses/:id/favorite', (req, res) => {
 
 // 机构列表
 app.get('/api/organizations', async (req, res) => {
-  const orgs = await sql('SELECT * FROM institutions ORDER BY id DESC');
+  const orgs = await sqlQuery('SELECT * FROM institutions ORDER BY id DESC');
   res.json({ code: 200, data: orgs });
 });
 
@@ -280,7 +280,7 @@ app.get('/api/user/student-profile', authMiddleware, async (req, res) => {
 
 // 获取体测报告
 app.get('/api/user/test-reports', authMiddleware, async (req, res) => {
-  const reports = await sql(
+  const reports = await sqlQuery(
     'SELECT * FROM body_tests WHERE user_id = ? ORDER BY test_date DESC LIMIT 10',
     [req.user.userId]
   );
@@ -289,7 +289,7 @@ app.get('/api/user/test-reports', authMiddleware, async (req, res) => {
 
 // 获取成长档案
 app.get('/api/user/growth-records', authMiddleware, async (req, res) => {
-  const records = await sql(
+  const records = await sqlQuery(
     'SELECT * FROM growth_records WHERE user_id = ? ORDER BY record_date DESC LIMIT 20',
     [req.user.userId]
   );
@@ -298,7 +298,7 @@ app.get('/api/user/growth-records', authMiddleware, async (req, res) => {
 
 // 获取学习记录
 app.get('/api/user/learning-records', authMiddleware, async (req, res) => {
-  const records = await sql(
+  const records = await sqlQuery(
     'SELECT lr.*, c.title as course_name, u.nickname as coach_name FROM lesson_records lr JOIN courses c ON lr.course_id = c.id JOIN coaches co ON lr.coach_id = co.id JOIN users u ON co.user_id = u.id WHERE lr.user_id = ? ORDER BY lr.lesson_date DESC LIMIT 50',
     [req.user.userId]
   );
@@ -307,7 +307,7 @@ app.get('/api/user/learning-records', authMiddleware, async (req, res) => {
 
 // 获取订单
 app.get('/api/user/orders', authMiddleware, async (req, res) => {
-  const orders = await sql(
+  const orders = await sqlQuery(
     'SELECT o.*, cp.name as package_name FROM orders o LEFT JOIN course_packages cp ON o.package_id = cp.id WHERE o.user_id = ? ORDER BY o.created_at DESC',
     [req.user.userId]
   );
@@ -385,7 +385,7 @@ app.get('/api/admin/stats', authMiddleware, async (req, res) => {
 
 // 学员列表
 app.get('/api/admin/students', authMiddleware, async (req, res) => {
-  const students = await sql(`
+  const students = await sqlQuery(`
     SELECT sp.*, u.nickname, u.phone, u.avatar as avatar_url,
            ul.balance_lessons as remaining_lessons
     FROM student_profiles sp
@@ -398,7 +398,7 @@ app.get('/api/admin/students', authMiddleware, async (req, res) => {
 
 // 教练列表
 app.get('/api/admin/coaches', authMiddleware, async (req, res) => {
-  const coaches = await sql(`
+  const coaches = await sqlQuery(`
     SELECT c.*, u.nickname, u.phone, u.avatar as avatar_url
     FROM coaches c
     JOIN users u ON c.user_id = u.id
@@ -409,7 +409,7 @@ app.get('/api/admin/coaches', authMiddleware, async (req, res) => {
 
 // 课程列表
 app.get('/api/admin/courses', authMiddleware, async (req, res) => {
-  const courses = await sql('SELECT * FROM courses ORDER BY created_at DESC');
+  const courses = await sqlQuery('SELECT * FROM courses ORDER BY created_at DESC');
   res.json({ code: 200, data: courses });
 });
 
@@ -420,7 +420,7 @@ app.get('/api/admin/orders', authMiddleware, async (req, res) => {
   const params = [];
   if (status) { s += ' WHERE o.status = ?'; params.push(status); }
   s += ' ORDER BY o.created_at DESC';
-  const orders = await sql(s, params);
+  const orders = await sqlQuery(s, params);
   res.json({ code: 200, data: orders });
 });
 
