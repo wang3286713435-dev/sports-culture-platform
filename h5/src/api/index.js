@@ -3,7 +3,7 @@
 
 import axios from 'axios'
 
-const API_BASE = 'https://api.zhuoyusmart.top'
+const API_BASE = 'https://api.shenzhensport.cn'
 
 const api = axios.create({
   baseURL: API_BASE,
