@@ -186,7 +186,7 @@ onMounted(async () => {
 
 .order-id {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .order-status {
@@ -195,8 +195,8 @@ onMounted(async () => {
 }
 
 .status-pending { color: #f59e0b; }
-.status-done { color: #11998e; }
-.status-cancel { color: #999; }
+.status-done { color: #34C759; }
+.status-cancel { color: var(--color-text-secondary); }
 
 .order-content {
   display: flex;
@@ -223,7 +223,7 @@ onMounted(async () => {
   align-items: center;
   gap: 6px;
   font-size: 13px;
-  color: #666;
+  color: var(--color-text-secondary);
   margin-bottom: 4px;
 }
 
@@ -235,7 +235,7 @@ onMounted(async () => {
 
 .order-time {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .order-footer {
@@ -254,7 +254,7 @@ onMounted(async () => {
 
 .amount-label {
   font-size: 13px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .amount-value {
@@ -287,7 +287,7 @@ onMounted(async () => {
 
 .empty-desc {
   font-size: 14px;
-  color: #999;
+  color: var(--color-text-secondary);
   margin-bottom: 24px;
 }
 

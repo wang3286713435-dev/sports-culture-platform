@@ -141,7 +141,7 @@ onMounted(async () => {
 
 <style scoped>
 .coach-detail {
-  background: #f5f5f5;
+  background: #F2F2F7;
   min-height: 100vh;
   padding-bottom: 100px;
 }
@@ -273,13 +273,13 @@ onMounted(async () => {
 
 .review-count {
   font-size: 13px;
-  color: #999;
+  color: var(--color-text-secondary);
   font-weight: normal;
 }
 
 .intro-text {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.7;
 }
 
@@ -294,7 +294,7 @@ onMounted(async () => {
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .cert-icon {
@@ -303,7 +303,7 @@ onMounted(async () => {
 
 .empty-review {
   text-align: center;
-  color: #999;
+  color: var(--color-text-secondary);
   padding: 20px 0;
 }
 
@@ -351,12 +351,12 @@ onMounted(async () => {
 .review-date {
   margin-left: auto;
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .review-content {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.6;
 }
 
@@ -390,7 +390,7 @@ onMounted(async () => {
 
 .price-unit {
   font-size: 13px;
-  color: #999;
+  color: var(--color-text-secondary);
   margin-left: 2px;
 }
 

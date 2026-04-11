@@ -130,7 +130,7 @@ onMounted(async () => {
 <style scoped>
 .sports-page {
   min-height: 100vh;
-  background: #f5f5f5;
+  background: #F2F2F7;
 }
 
 /* 一级菜单：教练类型 */
@@ -148,14 +148,14 @@ onMounted(async () => {
   padding: 14px;
   font-size: 15px;
   font-weight: 500;
-  color: #666;
+  color: var(--color-text-secondary);
   cursor: pointer;
   border-bottom: 2px solid transparent;
 }
 
 .type-tab.active {
-  color: #667eea;
-  border-bottom-color: #667eea;
+  color: #007AFF;
+  border-bottom-color: #007AFF;
 }
 
 /* 二级菜单：运动项目 */
@@ -177,12 +177,12 @@ onMounted(async () => {
   padding: 6px 14px;
   border-radius: 16px;
   font-size: 13px;
-  background: #f5f5f5;
-  color: #666;
+  background: #F2F2F7;
+  color: var(--color-text-secondary);
 }
 
 .sport-tab.active {
-  background: #667eea;
+  background: #007AFF;
   color: white;
 }
 
@@ -239,12 +239,12 @@ onMounted(async () => {
 
 .sport-tags {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .coach-exp {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
   margin-bottom: 4px;
 }
 
@@ -276,12 +276,12 @@ onMounted(async () => {
 .price-unit {
   font-size: 12px;
   font-weight: normal;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .empty-tip {
   text-align: center;
-  color: #999;
+  color: var(--color-text-secondary);
   padding: 40px;
   font-size: 14px;
 }

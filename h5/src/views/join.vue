@@ -288,7 +288,7 @@ const goHome = () => {
   align-items: flex-start;
   gap: 10px;
   font-size: 13px;
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.5;
 }
 
@@ -296,7 +296,7 @@ const goHome = () => {
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #007AFF, #007AFF);
   color: white;
   border-radius: 50%;
   text-align: center;
@@ -334,11 +334,11 @@ const goHome = () => {
 
 .form-label {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .form-input {
-  border: 1px solid #eee;
+  border: 1px solid #E5E5EA;
   border-radius: var(--radius-md);
   padding: 12px;
   font-size: 14px;
@@ -347,11 +347,11 @@ const goHome = () => {
 }
 
 .form-input:focus {
-  border-color: #667eea;
+  border-color: #007AFF;
 }
 
 .form-textarea {
-  border: 1px solid #eee;
+  border: 1px solid #E5E5EA;
   border-radius: var(--radius-md);
   padding: 12px;
   font-size: 14px;
@@ -368,18 +368,18 @@ const goHome = () => {
 
 .sport-tag {
   padding: 6px 12px;
-  border: 1px solid #eee;
+  border: 1px solid #E5E5EA;
   border-radius: 20px;
   font-size: 13px;
-  color: #666;
+  color: var(--color-text-secondary);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .sport-tag.selected {
-  border-color: #667eea;
+  border-color: #007AFF;
   background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
+  color: #007AFF;
 }
 
 .upload-list {
@@ -411,13 +411,13 @@ const goHome = () => {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #999;
+  color: var(--color-text-secondary);
   font-size: 12px;
 }
 
 .upload-tip {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .submit-bar {
@@ -456,7 +456,7 @@ const goHome = () => {
 
 .success-desc {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.6;
   margin-bottom: 24px;
 }

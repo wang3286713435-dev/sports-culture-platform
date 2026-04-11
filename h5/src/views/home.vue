@@ -179,14 +179,14 @@ const events = ref([
 ])
 
 const navItems = ref([
-  { name: "课程介绍", icon: "📚", path: "/courses", color: "linear-gradient(135deg, #ff9a56, #ff6a54)" },
-  { name: "运动项目", icon: "🏃", path: "/sports", color: "linear-gradient(135deg, #4facfe, #00f2fe)" },
-  { name: "学员档案", icon: "📖", path: "/profile", color: "linear-gradient(135deg, #667eea, #764ba2)" },
-  { name: "中心简介", icon: "📋", path: "/about", color: "linear-gradient(135deg, #11998e, #38ef7d)" },
-  { name: "找场地", icon: "📍", path: "/venues", color: "linear-gradient(135deg, #eb3349, #f45c43)" },
-  { name: "合作协会", icon: "🤝", path: "/associations", color: "linear-gradient(135deg, #f093fb, #f5576c)" },
-  { name: "相关活动", icon: "📰", path: "/articles", color: "linear-gradient(135deg, #43e97b, #38f9d7)" },
-  { name: "裁判档案", icon: "🏅", path: "/referee", color: "linear-gradient(135deg, #fa709a, #fee140)" }
+  { name: "课程介绍", icon: "📚", path: "/courses", color: "linear-gradient(135deg, #FF9500, #FF9500)" },
+  { name: "运动项目", icon: "🏃", path: "/sports", color: "linear-gradient(135deg, #007AFF, #007AFF)" },
+  { name: "学员档案", icon: "📖", path: "/profile", color: "linear-gradient(135deg, #007AFF, #007AFF)" },
+  { name: "中心简介", icon: "📋", path: "/about", color: "linear-gradient(135deg, #34C759, #34C759)" },
+  { name: "找场地", icon: "📍", path: "/venues", color: "linear-gradient(135deg, #FF3B30, #FF3B30)" },
+  { name: "合作协会", icon: "🤝", path: "/associations", color: "linear-gradient(135deg, #AF52DE, #FF3B30)" },
+  { name: "相关活动", icon: "📰", path: "/articles", color: "linear-gradient(135deg, #34C759, #34C759)" },
+  { name: "裁判档案", icon: "🏅", path: "/referee", color: "linear-gradient(135deg, #FF3B30, #FF9500)" }
 ])
 
 const courses = ref([])
@@ -214,7 +214,7 @@ onMounted(async () => {
 
 <style scoped>
 .home {
-  background: #f5f5f5;
+  background: #F2F2F7;
   padding-bottom: 70px;
 }
 
@@ -254,11 +254,11 @@ onMounted(async () => {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #f5f5f5;
+  background: #F2F2F7;
   border-radius: 20px;
   padding: 10px 16px;
   font-size: 14px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 /* Banner */
@@ -297,7 +297,7 @@ onMounted(async () => {
 
 .nav-item-name {
   font-size: 12px;
-  color: #333;
+  color: var(--color-text);
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
@@ -385,8 +385,8 @@ onMounted(async () => {
 }
 
 .event-badge.preparing {
-  background: #f5f5f5;
-  color: #999;
+  background: #F2F2F7;
+  color: var(--color-text-secondary);
 }
 
 .event-title {
@@ -398,7 +398,7 @@ onMounted(async () => {
 
 .event-meta {
   font-size: 11px;
-  color: #999;
+  color: var(--color-text-secondary);
   gap: 6px;
   cursor: pointer;
 }
@@ -406,7 +406,7 @@ onMounted(async () => {
 .course-intro-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #ff9a56, #ff6a54);
+  background: linear-gradient(135deg, #FF9500, #FF9500);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -416,7 +416,7 @@ onMounted(async () => {
 
 .course-intro-name {
   font-size: 11px;
-  color: #333;
+  color: var(--color-text);
   text-align: center;
 }
 
@@ -430,9 +430,9 @@ onMounted(async () => {
   color: white;
 }
 
-.slide-1 { background: linear-gradient(135deg, #667eea, #764ba2); }
-.slide-2 { background: linear-gradient(135deg, #11998e, #38ef7d); }
-.slide-3 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+.slide-1 { background: linear-gradient(135deg, #007AFF, #007AFF); }
+.slide-2 { background: linear-gradient(135deg, #34C759, #34C759); }
+.slide-3 { background: linear-gradient(135deg, #AF52DE, #FF3B30); }
 
 .slide-content {
   text-align: center;
@@ -498,7 +498,7 @@ onMounted(async () => {
 
 .article-meta {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
   display: flex;
   gap: 12px;
 }
@@ -525,7 +525,7 @@ onMounted(async () => {
 
 .section-more {
   font-size: 13px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 /* 运动分类 */
@@ -563,7 +563,7 @@ onMounted(async () => {
 
 .sport-name {
   font-size: 12px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 /* 教练列表 */
@@ -612,13 +612,13 @@ onMounted(async () => {
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
   margin-bottom: 4px;
 }
 
 .coach-sport {
   background: rgba(102,126,234,0.08);
-  color: #667eea;
+  color: #007AFF;
   padding: 2px 6px;
   border-radius: 4px;
 }
@@ -637,7 +637,7 @@ onMounted(async () => {
 
 .rating-count {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .coach-price {
@@ -650,7 +650,7 @@ onMounted(async () => {
 .coach-price .price-unit {
   font-size: 11px;
   font-weight: normal;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 /* 课程列表 */
@@ -691,7 +691,7 @@ onMounted(async () => {
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
   margin-bottom: 5px;
 }
 
@@ -708,7 +708,7 @@ onMounted(async () => {
 
 .course-desc {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -732,7 +732,7 @@ onMounted(async () => {
   font-size: 11px;
   padding: 2px 6px;
   background: rgba(102,126,234,0.08);
-  color: #667eea;
+  color: #007AFF;
   border-radius: 4px;
 }
 
@@ -749,7 +749,7 @@ onMounted(async () => {
 
 .price-unit {
   font-size: 11px;
-  color: #999;
+  color: var(--color-text-secondary);
   margin-left: 1px;
 }
 
@@ -779,7 +779,7 @@ onMounted(async () => {
 
 .quick-text {
   font-size: 12px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 /* 动画 keyframes */

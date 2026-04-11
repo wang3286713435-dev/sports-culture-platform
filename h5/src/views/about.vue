@@ -122,13 +122,13 @@ const sports = [
 
 <style scoped>
 .about-page {
-  background: #f5f5f5;
+  background: #F2F2F7;
   min-height: 100vh;
   padding-bottom: 20px;
 }
 
 .header-bg {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #007AFF, #007AFF);
   padding: 40px 20px 60px;
   text-align: center;
 }
@@ -156,12 +156,12 @@ const sports = [
   font-weight: 600;
   margin-bottom: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #F2F2F7;
 }
 
 .intro-text {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.8;
   margin-bottom: 12px;
 }
@@ -170,7 +170,7 @@ const sports = [
   display: flex;
   justify-content: space-between;
   padding: 12px 0;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #F2F2F7;
 }
 
 .license-item:last-child {
@@ -179,12 +179,12 @@ const sports = [
 
 .license-label {
   font-size: 14px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .license-value {
   font-size: 14px;
-  color: #333;
+  color: var(--color-text);
   font-weight: 500;
 }
 
@@ -200,7 +200,7 @@ const sports = [
   align-items: center;
   gap: 6px;
   padding: 12px 8px;
-  background: #f8f9fa;
+  background: #F2F2F7;
   border-radius: 8px;
 }
 
@@ -210,7 +210,7 @@ const sports = [
 
 .sport-name {
   font-size: 12px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .advantage-list {
@@ -227,7 +227,7 @@ const sports = [
 .advantage-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #007AFF, #007AFF);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -244,7 +244,7 @@ const sports = [
 
 .advantage-desc {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .contact-item {
@@ -253,7 +253,7 @@ const sports = [
   gap: 10px;
   padding: 10px 0;
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .contact-icon {

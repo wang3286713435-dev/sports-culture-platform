@@ -123,7 +123,7 @@ onMounted(async () => {
 
 <style scoped>
 .course-detail {
-  background: #f5f5f5;
+  background: #F2F2F7;
   min-height: 100vh;
   padding-bottom: 80px;
 }
@@ -184,7 +184,7 @@ onMounted(async () => {
 }
 
 .course-type-badge {
-  background: #667eea;
+  background: #007AFF;
   color: white;
   padding: 4px 12px;
   border-radius: 12px;
@@ -223,7 +223,7 @@ onMounted(async () => {
   align-items: center;
   gap: 4px;
   font-size: 12px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .price-tag {
@@ -234,7 +234,7 @@ onMounted(async () => {
 
 .course-desc {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.6;
 }
 
@@ -258,7 +258,7 @@ onMounted(async () => {
 
 .module-count {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
   font-weight: normal;
 }
 
@@ -273,7 +273,7 @@ onMounted(async () => {
   align-items: center;
   gap: 12px;
   padding: 12px;
-  background: #f8f9fa;
+  background: #F2F2F7;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -285,7 +285,7 @@ onMounted(async () => {
 .module-index {
   width: 28px;
   height: 28px;
-  background: #667eea;
+  background: #007AFF;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -311,7 +311,7 @@ onMounted(async () => {
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .module-meta span {
@@ -321,7 +321,7 @@ onMounted(async () => {
 }
 
 .play-icon {
-  color: #667eea;
+  color: #007AFF;
 }
 
 .bottom-bar {

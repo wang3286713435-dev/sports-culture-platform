@@ -258,7 +258,7 @@ onMounted(async () => {
   align-items: center;
   gap: 6px;
   font-size: 13px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .coach-avatar {
@@ -291,14 +291,14 @@ onMounted(async () => {
   align-items: center;
   justify-content: space-between;
   padding: 12px 14px;
-  border: 2px solid #eee;
+  border: 2px solid #E5E5EA;
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .package-item.selected {
-  border-color: #667eea;
+  border-color: #007AFF;
   background: rgba(102, 126, 234, 0.05);
 }
 
@@ -310,7 +310,7 @@ onMounted(async () => {
 
 .pkg-desc {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .pkg-price {
@@ -325,7 +325,7 @@ onMounted(async () => {
 
 .unit {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .time-week {
@@ -340,13 +340,13 @@ onMounted(async () => {
   text-align: center;
   padding: 10px 12px;
   border-radius: var(--radius-md);
-  border: 2px solid #eee;
+  border: 2px solid #E5E5EA;
   cursor: pointer;
   min-width: 50px;
 }
 
 .week-item.selected {
-  border-color: #667eea;
+  border-color: #007AFF;
   background: rgba(102, 126, 234, 0.08);
 }
 
@@ -363,7 +363,7 @@ onMounted(async () => {
 
 .week-date {
   font-size: 11px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .time-slots {
@@ -374,7 +374,7 @@ onMounted(async () => {
 
 .slot-item {
   padding: 8px 16px;
-  border: 2px solid #eee;
+  border: 2px solid #E5E5EA;
   border-radius: 20px;
   font-size: 14px;
   color: #1a1a2e;
@@ -382,9 +382,9 @@ onMounted(async () => {
 }
 
 .slot-item.selected {
-  border-color: #667eea;
+  border-color: #007AFF;
   background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
+  color: #007AFF;
   font-weight: 600;
 }
 
@@ -407,14 +407,14 @@ onMounted(async () => {
 
 .form-label {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
   min-width: 50px;
 }
 
 .form-input {
   flex: 1;
   border: none;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #E5E5EA;
   padding: 8px 0;
   font-size: 14px;
   outline: none;
@@ -431,18 +431,18 @@ onMounted(async () => {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .fee-item.total {
   padding-top: 10px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #E5E5EA;
   font-weight: 600;
   color: #1a1a2e;
 }
 
 .discount {
-  color: #11998e;
+  color: #34C759;
 }
 
 .total-price {
@@ -463,7 +463,7 @@ onMounted(async () => {
 
 .total-label {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .total-amount {
@@ -502,7 +502,7 @@ onMounted(async () => {
 
 .success-desc {
   font-size: 14px;
-  color: #666;
+  color: var(--color-text-secondary);
   margin-bottom: 20px;
 }
 

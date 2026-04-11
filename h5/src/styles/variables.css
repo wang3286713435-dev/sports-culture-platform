@@ -1,0 +1,121 @@
+/**
+ * 全民体育文化平台 - 全局样式变量
+ * 基于 Apple HIG + 莫兰迪色系设计规范
+ * 2026-04-11 更新
+ */
+
+:root {
+  /* ========== 色彩系统 ========== */
+  /* 主强调色 */
+  --color-primary: #007AFF;
+  --color-primary-light: rgba(0, 122, 255, 0.1);
+
+  /* 功能色 */
+  --color-success: #34C759;
+  --color-success-light: rgba(52, 199, 89, 0.1);
+  --color-warning: #FF9500;
+  --color-warning-light: rgba(255, 149, 0, 0.1);
+  --color-error: #FF3B30;
+  --color-error-light: rgba(255, 59, 48, 0.1);
+  --color-purple: #AF52DE;
+  --color-purple-light: rgba(175, 82, 222, 0.1);
+
+  /* 背景色 */
+  --color-bg: #F2F2F7;
+  --color-bg-secondary: #F2F2F7;
+  --color-card: #FFFFFF;
+  --color-divider: #E5E5EA;
+
+  /* 文字色 */
+  --color-text: #1C1C1E;
+  --color-text-secondary: #8E8E93;
+  --color-text-placeholder: #AEAEB2;
+  --color-text-disabled: #C7C7CC;
+
+  /* ========== 圆角规范 ========== */
+  --radius-card: 12px;
+  --radius-button: 10px;
+  --radius-image: 8px;
+  --radius-input: 10px;
+
+  /* ========== 间距规范 ========== */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-xxl: 24px;
+
+  /* ========== 字体规范 ========== */
+  --font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 15px;
+  --font-size-lg: 17px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 22px;
+  --font-size-title: 28px;
+
+  /* ========== 阴影规范 ========== */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-button: 0 2px 6px rgba(0, 122, 255, 0.25);
+
+  /* ========== 动画 ========== */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* ========== 全局重置 ========== */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+page, body {
+  font-family: var(--font-family);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========== 通用工具类 ========== */
+.bg-page { background: var(--color-bg); }
+.bg-card { background: var(--color-card); border-radius: var(--radius-card); }
+
+.text-primary { color: var(--color-primary) !important; }
+.text-success { color: var(--color-success) !important; }
+.text-warning { color: var(--color-warning) !important; }
+.text-error { color: var(--color-error) !important; }
+.text-secondary { color: var(--color-text-secondary) !important; }
+.text-disabled { color: var(--color-text-disabled) !important; }
+
+/* ========== 按钮 ========== */
+.btn-primary {
+  background: var(--color-primary) !important;
+  color: #FFFFFF !important;
+  border-radius: var(--radius-button) !important;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+}
+
+/* ========== 卡片 ========== */
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-card);
+  margin: var(--spacing-lg);
+}
+
+/* ========== 分割线 ========== */
+.divider {
+  height: 1px;
+  background: var(--color-divider);
+}

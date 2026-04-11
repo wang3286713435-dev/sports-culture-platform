@@ -122,7 +122,7 @@ onMounted(async () => {
 
 <style scoped>
 .courses-page {
-  background: #f5f5f5;
+  background: #F2F2F7;
   min-height: 100vh;
   padding-bottom: 70px;
 }
@@ -149,13 +149,13 @@ onMounted(async () => {
   align-items: center;
   justify-content: center;
   padding: 12px 8px;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #F2F2F7;
   cursor: pointer;
 }
 
 .sidebar-tab.active {
-  background: #f5f5f5;
-  border-left: 3px solid #667eea;
+  background: #F2F2F7;
+  border-left: 3px solid #007AFF;
 }
 
 .tab-icon {
@@ -165,18 +165,18 @@ onMounted(async () => {
 
 .tab-name {
   font-size: 12px;
-  color: #333;
+  color: var(--color-text);
 }
 
 .sidebar-tab.active .tab-name {
-  color: #667eea;
+  color: #007AFF;
   font-weight: 600;
 }
 
 /* 右侧内容 */
 .courses-content {
   flex: 1;
-  background: #f5f5f5;
+  background: #F2F2F7;
 }
 
 .content-header {
@@ -194,7 +194,7 @@ onMounted(async () => {
 
 .course-count {
   font-size: 12px;
-  color: #999;
+  color: var(--color-text-secondary);
 }
 
 .courses-list {
@@ -244,7 +244,7 @@ onMounted(async () => {
 
 .course-desc {
   font-size: 12px;
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -257,7 +257,7 @@ onMounted(async () => {
   display: flex;
   gap: 12px;
   font-size: 11px;
-  color: #999;
+  color: var(--color-text-secondary);
   margin-bottom: 10px;
 }
 
@@ -286,13 +286,13 @@ onMounted(async () => {
 
 .price-unit {
   font-size: 11px;
-  color: #999;
+  color: var(--color-text-secondary);
   margin-left: 2px;
 }
 
 .empty-tip {
   text-align: center;
-  color: #999;
+  color: var(--color-text-secondary);
   padding: 40px 0;
   font-size: 14px;
 }

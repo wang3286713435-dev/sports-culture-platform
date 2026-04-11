@@ -7,7 +7,7 @@
         <div style="width:20px"></div>
       </div>
       <div class="search-area">
-        <van-search v-model="keyword" placeholder="搜索教练姓名" shape="round" background="#f5f5f5" @search="doSearch" />
+        <van-search v-model="keyword" placeholder="搜索教练姓名" shape="round" background="#F2F2F7" @search="doSearch" />
       </div>
       <div class="filter-scroll">
         <div class="filter-tab" :class="{ active: !selectedSport }" @click="selectSport(null)">全部</div>
@@ -88,14 +88,14 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.coaches-page { background: #f5f5f5; min-height: 100vh; padding-bottom: 70px; }
+.coaches-page { background: #F2F2F7; min-height: 100vh; padding-bottom: 70px; }
 .coaches-header { background: white; position: sticky; top: 0; z-index: 100; }
 .header-nav { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; }
 .header-title { font-size: 18px; font-weight: 600; }
 .search-area { padding: 0 16px 12px; }
 .filter-scroll { display: flex; gap: 8px; padding: 0 16px 12px; overflow-x: auto; }
-.filter-tab { white-space: nowrap; padding: 6px 14px; border-radius: 16px; font-size: 13px; background: #f5f5f5; color: #666; }
-.filter-tab.active { background: #667eea; color: white; }
+.filter-tab { white-space: nowrap; padding: 6px 14px; border-radius: 16px; font-size: 13px; background: #F2F2F7; color: var(--color-text-secondary); }
+.filter-tab.active { background: #007AFF; color: white; }
 .coach-list { padding: 12px 16px; }
 .coach-card { background: white; border-radius: 12px; padding: 14px; margin-bottom: 12px; }
 .coach-main { display: flex; gap: 12px; }
@@ -104,16 +104,16 @@ onMounted(async () => {
 .coach-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 .coach-name { font-size: 16px; font-weight: 600; }
 .coach-price { font-size: 16px; font-weight: 700; color: #ef476f; }
-.price-unit { font-size: 12px; color: #999; font-weight: normal; }
+.price-unit { font-size: 12px; color: var(--color-text-secondary); font-weight: normal; }
 .coach-meta { display: flex; gap: 8px; margin-bottom: 6px; }
-.meta-tag { font-size: 12px; padding: 2px 8px; background: #f0f0f0; border-radius: 4px; color: #666; }
-.coach-desc { font-size: 13px; color: #999; margin-bottom: 8px; }
+.meta-tag { font-size: 12px; padding: 2px 8px; background: #f0f0f0; border-radius: 4px; color: var(--color-text-secondary); }
+.coach-desc { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 8px; }
 .coach-footer { display: flex; justify-content: space-between; align-items: center; }
 .coach-rating { display: flex; align-items: center; gap: 4px; }
 .rating-text { font-size: 13px; font-weight: 600; }
-.rating-count { font-size: 12px; color: #999; }
-.coach-students { font-size: 12px; color: #999; }
+.rating-count { font-size: 12px; color: var(--color-text-secondary); }
+.coach-students { font-size: 12px; color: var(--color-text-secondary); }
 .empty-state { text-align: center; padding: 60px 0; }
 .empty-icon { font-size: 48px; margin-bottom: 12px; }
-.empty-text { color: #999; }
+.empty-text { color: var(--color-text-secondary); }
 </style>

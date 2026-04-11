@@ -14,7 +14,7 @@ showToast('裁判档案功能待添加')
 <style scoped>
 .placeholder-page {
   min-height: 100vh;
-  background: #f5f5f5;
+  background: #F2F2F7;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,5 +23,5 @@ showToast('裁判档案功能待添加')
 }
 .placeholder-icon { font-size: 64px; margin-bottom: 20px; }
 .placeholder-title { font-size: 20px; font-weight: 600; margin-bottom: 10px; }
-.placeholder-desc { color: #999; }
+.placeholder-desc { color: var(--color-text-secondary); }
 </style>

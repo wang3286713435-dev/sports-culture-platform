@@ -250,7 +250,7 @@ onMounted(async () => {
 
 <style scoped>
 .profile-page {
-  background: #f5f5f5;
+  background: #F2F2F7;
   min-height: 100vh;
   padding-bottom: 70px;
 }
@@ -263,18 +263,18 @@ onMounted(async () => {
   align-items: center;
   justify-content: center;
   padding: 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #007AFF 0%, #007AFF 100%);
   color: white;
 }
 
 .not-login-icon { font-size: 64px; margin-bottom: 20px; }
 .not-login-title { font-size: 24px; font-weight: 600; margin-bottom: 10px; }
 .not-login-desc { font-size: 14px; opacity: 0.85; margin-bottom: 30px; }
-.not-login .van-button { background: white; color: #667eea; border: none; }
+.not-login .van-button { background: white; color: #007AFF; border: none; }
 
 /* 已登录样式 */
 .profile-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #007AFF 0%, #007AFF 100%);
   padding: 24px 16px;
   color: white;
 }
@@ -325,15 +325,15 @@ onMounted(async () => {
 }
 
 .test-item {
-  background: #f8f9fa;
+  background: #F2F2F7;
   border-radius: 8px;
   padding: 12px;
   text-align: center;
 }
 
-.test-label { font-size: 12px; color: #666; margin-bottom: 4px; }
+.test-label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px; }
 .test-value { font-size: 18px; font-weight: 600; }
-.unit { font-size: 12px; font-weight: normal; color: #999; }
+.unit { font-size: 12px; font-weight: normal; color: var(--color-text-secondary); }
 
 .health-badge {
   text-align: center;
@@ -351,16 +351,16 @@ onMounted(async () => {
 }
 
 .sport-item {
-  background: #f8f9fa;
+  background: #F2F2F7;
   border-radius: 8px;
   padding: 12px 8px;
   text-align: center;
 }
 
 .sport-icon { font-size: 24px; margin-bottom: 4px; }
-.sport-name { font-size: 12px; color: #333; margin-bottom: 2px; }
-.sport-duration { font-size: 11px; color: #667eea; }
-.sport-count { font-size: 10px; color: #999; }
+.sport-name { font-size: 12px; color: var(--color-text); margin-bottom: 2px; }
+.sport-duration { font-size: 11px; color: #007AFF; }
+.sport-count { font-size: 10px; color: var(--color-text-secondary); }
 
 .records-list { display: flex; flex-direction: column; gap: 10px; }
 
@@ -369,23 +369,23 @@ onMounted(async () => {
   align-items: center;
   gap: 12px;
   padding: 12px;
-  background: #f8f9fa;
+  background: #F2F2F7;
   border-radius: 8px;
 }
 
 .record-icon { font-size: 24px; }
 .record-content { flex: 1; }
 .record-title { font-size: 14px; font-weight: 500; }
-.record-meta { font-size: 12px; color: #999; display: flex; gap: 12px; margin-top: 4px; }
+.record-meta { font-size: 12px; color: var(--color-text-secondary); display: flex; gap: 12px; margin-top: 4px; }
 
-.empty-tip { text-align: center; color: #999; padding: 20px; font-size: 13px; }
+.empty-tip { text-align: center; color: var(--color-text-secondary); padding: 20px; font-size: 13px; }
 
-.goal-text { font-size: 14px; color: #666; line-height: 1.6; }
+.goal-text { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
 </style>
 
 /* 体测报告样式 */
 .test-report-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #007AFF 0%, #007AFF 100%);
   border-radius: 12px;
   padding: 16px;
   color: white;
@@ -448,7 +448,7 @@ onMounted(async () => {
   position: relative;
   padding-left: 20px;
   padding-bottom: 20px;
-  border-left: 2px solid #667eea;
+  border-left: 2px solid #007AFF;
 }
 
 .timeline-dot {
@@ -457,15 +457,15 @@ onMounted(async () => {
   top: 0;
   width: 10px;
   height: 10px;
-  background: #667eea;
+  background: #007AFF;
   border-radius: 50%;
 }
 
-.timeline-content { background: #f8f9fa; border-radius: 8px; padding: 12px; }
+.timeline-content { background: #F2F2F7; border-radius: 8px; padding: 12px; }
 
-.timeline-date { font-size: 12px; color: #999; margin-bottom: 4px; }
+.timeline-date { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px; }
 .timeline-course { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-.timeline-skill { font-size: 12px; color: #667eea; margin-bottom: 6px; }
+.timeline-skill { font-size: 12px; color: #007AFF; margin-bottom: 6px; }
 
 .timeline-cert {
   display: flex;
@@ -476,6 +476,6 @@ onMounted(async () => {
   margin-bottom: 4px;
 }
 
-.cert-no { font-size: 10px; color: #999; }
+.cert-no { font-size: 10px; color: var(--color-text-secondary); }
 
-.timeline-eval { font-size: 12px; color: #666; }
+.timeline-eval { font-size: 12px; color: var(--color-text-secondary); }
