@@ -11,8 +11,8 @@
   --glass-border: rgba(255, 255, 255, 0.35);
   --glass-shadow: rgba(0, 0, 0, 0.12);
   
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --gradient-primary: linear-gradient(135deg, #007AFF 0%, #007AFF 100%);
+  --gradient-hero: linear-gradient(135deg, #007AFF 0%, #007AFF 50%, #f093fb 100%);
   
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
@@ -118,7 +118,7 @@
 }
 
 .van-tabbar-item--active {
-  color: #667eea !important;
+  color: #007AFF !important;
 }
 
 /* 搜索框毛玻璃 */
@@ -216,7 +216,7 @@
 }
 
 .tag-primary {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #007AFF, #007AFF);
   color: white;
 }
 

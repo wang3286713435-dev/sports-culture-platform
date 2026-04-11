@@ -9,7 +9,7 @@
     <!-- 底部TabBar -->
     <van-tabbar
       v-model="activeTab"
-      active-color="#667eea"
+      active-color="#007AFF"
       inactive-color="#999"
       :fixed="true"
       :placeholder="true"
