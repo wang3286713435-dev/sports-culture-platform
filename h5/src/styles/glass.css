@@ -1,0 +1,237 @@
+/* ===== 毛玻璃主题样式 ===== */
+
+:root {
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  
+  --glass-bg: rgba(255, 255, 255, 0.18);
+  --glass-bg-solid: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.35);
+  --glass-shadow: rgba(0, 0, 0, 0.12);
+  
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 毛玻璃卡片 */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+}
+
+.glass-card-solid {
+  background: var(--glass-bg-solid);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+/* 毛玻璃按钮 */
+.glass-btn {
+  background: var(--gradient-primary);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: var(--radius-xl);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+
+.glass-btn:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+.glass-btn-outline {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255,255,255,0.5);
+  border-radius: var(--radius-xl);
+  color: white;
+  font-weight: 500;
+}
+
+/* 渐变背景 */
+.gradient-bg {
+  background: var(--gradient-hero);
+}
+
+/* 页面容器 */
+.page-container {
+  padding: 16px;
+  padding-bottom: 100px;
+}
+
+/* 页面标题 */
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* 区块标题 */
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+
+/* 通用卡片 */
+.card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: var(--transition-normal);
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+/* TabBar 毛玻璃 */
+.van-tabbar {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-top: 1px solid rgba(255,255,255,0.5) !important;
+}
+
+.van-tabbar-item--active {
+  color: #667eea !important;
+}
+
+/* 搜索框毛玻璃 */
+.van-search {
+  background: rgba(255,255,255,0.2) !important;
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-xl) !important;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.van-search__content {
+  background: transparent !important;
+  border-radius: var(--radius-xl) !important;
+}
+
+/* 列表项 */
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+/* 动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.animate-slide-in {
+  animation: slideInRight 0.4s ease forwards;
+}
+
+/* 延迟动画 */
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.delay-3 { animation-delay: 0.3s; opacity: 0; }
+.delay-4 { animation-delay: 0.4s; opacity: 0; }
+.delay-5 { animation-delay: 0.5s; opacity: 0; }
+
+/* 图片圆角 */
+.img-rounded {
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+/* 头像 */
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.tag-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.tag-success {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+  color: white;
+}
+
+.tag-warning {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+}
+
+/* 评分星星 */
+.stars {
+  color: #fbbf24;
+  font-size: 13px;
+}
