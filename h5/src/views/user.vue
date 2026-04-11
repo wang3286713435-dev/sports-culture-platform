@@ -63,49 +63,65 @@
       </div>
     </div>
 
-    <!-- 未登录状态 -->
+    <!-- 未登录状态：重新设计版 -->
     <div v-else class="not-logged-in">
-      <div class="login-header">
-        <div class="login-logo">🏆</div>
-        <div class="login-title">全民体育文化平台</div>
-        <div class="login-subtitle">深圳市社会体育培训中心官方平台</div>
+      <!-- Hero 头部 -->
+      <div class="login-hero">
+        <div class="hero-badge">🏆</div>
+        <h1 class="hero-title">全民体育文化平台</h1>
+        <p class="hero-subtitle">深圳市社会体育培训中心</p>
       </div>
 
-      <div class="login-card card">
-        <div class="login-tabs">
-          <div class="login-tab" :class="{ active: loginMode === 'sms' }" @click="loginMode = 'sms'">验证码登录</div>
-          <div class="login-tab" :class="{ active: loginMode === 'password' }" @click="loginMode = 'password'">密码登录</div>
-        </div>
-
-        <div v-if="loginMode === 'sms'" class="login-form">
-          <div class="input-item">
-            <span class="input-icon">📱</span>
-            <input v-model="loginForm.phone" type="tel" maxlength="11" placeholder="请输入手机号" class="input-field" />
+      <!-- 表单区域 -->
+      <div class="login-form-wrap">
+        <div class="login-card">
+          <!-- Tab 切换 -->
+          <div class="login-tabs">
+            <div class="login-tab" :class="{ active: loginMode === 'sms' }" @click="loginMode = 'sms'">验证码登录</div>
+            <div class="login-tab" :class="{ active: loginMode === 'password' }" @click="loginMode = 'password'">密码登录</div>
           </div>
-          <div class="input-item">
-            <span class="input-icon">🔐</span>
-            <input v-model="loginForm.code" type="tel" maxlength="6" placeholder="请输入验证码" class="input-field" />
-            <span class="code-btn" @click="sendCode">{{ countdown > 0 ? countdown + 's' : '获取验证码' }}</span>
-          </div>
-        </div>
 
-        <div v-else class="login-form">
-          <div class="input-item">
-            <span class="input-icon">📱</span>
-            <input v-model="loginForm.phone" type="tel" maxlength="11" placeholder="请输入手机号" class="input-field" />
+          <!-- 手机号（通用）-->
+          <div class="field-group">
+            <div class="field-label">手机号</div>
+            <div class="field-row">
+              <span class="field-icon">📱</span>
+              <input v-model="loginForm.phone" type="tel" maxlength="11" placeholder="请输入手机号" class="field-input" />
+            </div>
           </div>
-          <div class="input-item">
-            <span class="input-icon">🔒</span>
-            <input v-model="loginForm.password" type="password" placeholder="请输入密码" class="input-field" />
+
+          <!-- 验证码模式 -->
+          <div v-if="loginMode === 'sms'" class="field-group">
+            <div class="field-label">验证码</div>
+            <div class="field-row">
+              <span class="field-icon">🔐</span>
+              <input v-model="loginForm.code" type="tel" maxlength="6" placeholder="请输入6位验证码" class="field-input" />
+              <button class="code-btn" :disabled="countdown > 0 || !loginForm.phone" @click="sendCode">
+                {{ countdown > 0 ? countdown + 's' : '获取验证码' }}
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div class="login-btn" @click="doLogin">登录 / 注册</div>
+          <!-- 密码模式 -->
+          <div v-else class="field-group">
+            <div class="field-label">密码</div>
+            <div class="field-row">
+              <span class="field-icon">🔒</span>
+              <input v-model="loginForm.password" type="password" placeholder="请输入密码" class="field-input" />
+            </div>
+          </div>
 
-        <div class="login-tip">
-          登录即表示同意
-          <span class="link">《用户协议》</span> 和
-          <span class="link">《隐私政策》</span>
+          <!-- 登录按钮 -->
+          <button class="login-btn" @click="doLogin">
+            登录 / 注册
+          </button>
+
+          <!-- 协议提示 -->
+          <p class="login-tip">
+            登录即表示同意
+            <span class="link">《用户协议》</span> 和
+            <span class="link">《隐私政策》</span>
+          </p>
         </div>
       </div>
     </div>
@@ -160,36 +176,31 @@ const doLogin = async () => {
     alert('请输入验证码')
     return
   }
-  
+
   try {
     let res
     if (loginMode.value === 'sms') {
       res = await loginWithSms({ phone: loginForm.value.phone, code: loginForm.value.code })
     } else {
-      // 先尝试密码登录
       res = await loginWithPassword({ phone: loginForm.value.phone, password: loginForm.value.password })
     }
-    
+
     if (res.code === 200) {
-      // 登录成功
       userInfo.value = res.data.user
       isLoggedIn.value = true
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('user', JSON.stringify(res.data.user))
     } else if (res.code === 401) {
-      // 密码错误，提示用户
       alert('密码错误，请重新输入')
     }
   } catch (e) {
-    // 登录失败，可能是新用户，自动注册
     console.log('登录失败，尝试注册:', e.message)
     try {
-      // 使用默认密码自动注册
-      const regRes = await loginWithPassword({ 
-        phone: loginForm.value.phone, 
-        password: loginForm.value.password || '888999' 
+      const regRes = await loginWithPassword({
+        phone: loginForm.value.phone,
+        password: loginForm.value.password || '888999'
       })
-      
+
       if (regRes.code === 200) {
         userInfo.value = regRes.data.user
         isLoggedIn.value = true
@@ -199,7 +210,7 @@ const doLogin = async () => {
       } else {
         alert('注册失败：' + (regRes.message || '请重试'))
       }
-    } catch(err) {
+    } catch (err) {
       alert('操作失败，请重试')
     }
   }
@@ -226,6 +237,7 @@ onMounted(() => {
 <style scoped>
 .user-page { background: var(--color-bg); min-height: 100vh; padding-bottom: 70px; }
 
+/* ========== 已登录 Header ========== */
 .user-header {
   background: var(--color-primary);
   padding: 32px 20px 40px;
@@ -235,49 +247,100 @@ onMounted(() => {
 .user-name { font-size: 20px; font-weight: 600; color: white; }
 .user-phone { font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 4px; }
 
-.card { background: var(--color-card); margin: 12px 16px; border-radius: var(--radius-card); padding: var(--spacing-lg); }
+/* ========== 通用卡片 ========== */
+.card { background: var(--color-card); margin: 12px 16px; border-radius: var(--radius-card); padding: var(--spacing-lg); box-shadow: var(--shadow-card); }
 .card-title { font-size: var(--font-size-md); font-weight: 600; margin-bottom: 12px; }
-
 .order-tabs { display: flex; justify-content: space-around; }
 .order-tab { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; }
 .tab-icon { font-size: 22px; }
 .tab-text { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
-
 .menu-item { display: flex; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--color-divider); }
 .menu-item:last-child { border-bottom: none; }
 .menu-item.logout { color: var(--color-error); }
 .menu-icon { font-size: 18px; margin-right: 12px; }
 .menu-text { flex: 1; font-size: var(--font-size-base); color: var(--color-text); }
 
-.not-logged-in { padding: 40px 20px; }
-.login-header { text-align: center; margin-bottom: 40px; }
-.login-logo { font-size: 56px; margin-bottom: 12px; }
-.login-title { font-size: var(--font-size-title); font-weight: 700; color: var(--color-text); margin-bottom: 8px; }
-.login-subtitle { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+/* ========== 未登录：重新设计 ========== */
+.not-logged-in { background: var(--color-bg); min-height: 100vh; }
 
-.login-card { margin: 0; }
+/* Hero 头部 */
+.login-hero {
+  background: linear-gradient(160deg, #007AFF 0%, #5856D6 100%);
+  padding: 56px 24px 48px;
+  text-align: center;
+  border-radius: 0 0 24px 24px;
+}
+.hero-badge { font-size: 52px; margin-bottom: 12px; }
+.hero-title { font-size: 24px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px; letter-spacing: -0.3px; }
+.hero-subtitle { font-size: 13px; color: rgba(255,255,255,0.75); }
+
+/* 表单区域 */
+.login-form-wrap { padding: 0 16px; margin-top: -20px; }
+.login-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* Tab */
 .login-tabs { display: flex; border-bottom: 1px solid var(--color-divider); margin-bottom: 20px; }
-.login-tab { flex: 1; text-align: center; padding: 12px; font-size: var(--font-size-md); color: var(--color-text-secondary); cursor: pointer; }
-.login-tab.active { color: var(--color-primary); font-weight: 600; border-bottom: 2px solid var(--color-primary); }
+.login-tab { flex: 1; text-align: center; padding: 10px; font-size: 15px; color: var(--color-text-secondary); cursor: pointer; position: relative; transition: color 0.2s; }
+.login-tab.active { color: var(--color-primary); font-weight: 600; }
+.login-tab.active::after { content: ''; position: absolute; bottom: -1px; left: 20%; right: 20%; height: 2px; background: var(--color-primary); border-radius: 1px; }
 
-.input-item { display: flex; align-items: center; background: var(--color-bg); border-radius: 24px; padding: 4px 16px; margin-bottom: 12px; }
-.input-icon { font-size: 16px; margin-right: 8px; }
-.input-field { flex: 1; border: none; background: transparent; padding: 12px 0; font-size: var(--font-size-md); outline: none; color: var(--color-text); }
-.input-field::placeholder { color: var(--color-text-placeholder); }
-.code-btn { color: var(--color-primary); font-size: var(--font-size-sm); white-space: nowrap; cursor: pointer; }
+/* 字段 */
+.field-group { margin-bottom: 14px; }
+.field-label { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 6px; font-weight: 500; }
+.field-row {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg);
+  border-radius: 10px;
+  padding: 2px 12px;
+  border: 1px solid var(--color-divider);
+  transition: border-color 0.2s;
+}
+.field-row:focus-within { border-color: var(--color-primary); background: #fff; }
+.field-icon { font-size: 15px; margin-right: 8px; flex-shrink: 0; }
+.field-input { flex: 1; border: none; background: transparent; padding: 12px 0; font-size: 15px; color: var(--color-text); outline: none; }
+.field-input::placeholder { color: var(--color-text-placeholder); }
 
+/* 验证码按钮 */
+.code-btn {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+.code-btn:disabled { background: #C7C7CC; cursor: not-allowed; }
+
+/* 登录按钮 */
 .login-btn {
   width: 100%;
   padding: 14px;
   background: var(--color-primary);
-  color: white;
-  border-radius: var(--radius-button);
-  text-align: center;
-  font-size: var(--font-size-lg);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
   font-weight: 600;
-  margin-top: 16px;
+  margin-top: 20px;
   cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: opacity 0.2s;
+  box-shadow: 0 4px 12px rgba(0,122,255,0.3);
 }
-.login-tip { text-align: center; font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: 16px; }
+.login-btn:active { opacity: 0.85; }
+
+/* 协议 */
+.login-tip { text-align: center; font-size: 11px; color: var(--color-text-secondary); margin-top: 14px; line-height: 1.5; }
 .link { color: var(--color-primary); }
 </style>
